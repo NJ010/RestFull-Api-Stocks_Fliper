@@ -10,6 +10,14 @@ const stocks = require("../models/stocks");
 // });
 
 
+router.get("/date/:d", (req, res, next) => {
+    const date = req.params.d;
+    stocks.find({
+        Date: date
+    }, (err, foundStocks) => {
+        res.status(200).json(foundStocks);
+    });
+});
 
 router.get("/:name", (req, res, next) => {
     const name=req.params.name;
@@ -17,6 +25,21 @@ router.get("/:name", (req, res, next) => {
         res.status(200).json(foundStocks);
     });
 });
+
+
+router.get("/:name/:date", (req, res, next) => {
+    const name = req.params.name;
+    const date =req.params.date;
+    stocks.find({
+        name: name,
+        Date: date
+    }, (err, foundStocks) => {
+        res.status(200).json(foundStocks);
+    });
+});
+
+
+
 
 
 

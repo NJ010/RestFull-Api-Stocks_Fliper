@@ -2,9 +2,7 @@ const mongooge =require("mongoose");
 
 const Stocks=mongooge.Schema({
     name:String,
-    Date: {
-        type:Date
-    },
+    Date: String,
     Open : Number,
     High: Number,
     Low: Number,
